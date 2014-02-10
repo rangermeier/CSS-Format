@@ -1,48 +1,43 @@
 [
-	{
-		"id": "edit",
-		"children":
-		[
-			{ "id": "permute" },
-			{
-				"caption": "CSS Format",
-				"children":
-				[
-					{ "command": "css_format", "args": { "action": "compact" }, "caption": "Compact"},
-					{ "command": "css_format", "args": { "action": "expand" }, "caption": "Expand"},
-					{ "command": "css_format", "args": { "action": "compress" }, "caption": "Compress"}
-				]
-			}
-		]
-	},
-	{
-		"id": "preferences",
-		"children":
-		[
-			{
-				"id": "package-settings",
-				"children":
-				[
-					{
-						"caption": "CSS Format",
-						"children":
-						[
-							{
-								"command": "open_file",
-								"args": {
-									"file": "${packages}/CSS Format/Default (Windows).sublime-keymap",
-									"platform": "Windows"
-								},
-								"caption": "Key Bindings – Default"
-							},
-							{
-								"command": "open_file",
-								"args": {
-									"file": "${packages}/CSS Format/Default (OSX).sublime-keymap",
-									"platform": "OSX"
-								},
-								"caption": "Key Bindings – Default"
-							},
+    {
+        "id": "edit",
+        "children":
+        [
+            { "id": "permute" },
+            {
+                "command": "less_format",
+                "caption": "Format LESS"
+            }
+        ]
+    },
+    {
+        "id": "preferences",
+        "children":
+        [
+            {
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "LESS Format",
+                        "children":
+                        [
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/LESS Format/Default (Windows).sublime-keymap",
+                                    "platform": "Windows"
+                                },
+                                "caption": "Key Bindings – Default"
+                            },
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/LESS Format/Default (OSX).sublime-keymap",
+                                    "platform": "OSX"
+                                },
+                                "caption": "Key Bindings – Default"
+                            },
                             {
                                 "command": "open_file",
                                 "args": {
@@ -60,11 +55,11 @@
                                 "caption": "Key Bindings – User"
                             },
                             { "caption": "-" }
-						]
-					}
-				]
-			}
-		]
+                        ]
+                    }
+                ]
+            }
+        ]
 
-	}
+    }
 ]
