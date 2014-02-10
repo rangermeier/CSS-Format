@@ -1,0 +1,20 @@
+[
+    {
+        "keys": ["ctrl+alt+["],
+        "command": "css_format"
+    },
+    {
+        "keys": ["ctrl+alt+]"],
+        "command": "css_format",
+        "args": {
+            "action": "indent"
+        },
+    },
+    {
+        "keys": ["ctrl+alt+\\"],
+        "command": "css_format",
+        "args": {
+            "action": "format"
+        },
+    }
+]

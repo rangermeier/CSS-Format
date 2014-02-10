@@ -1,4 +1,0 @@
-[
-    { "keys": ["ctrl+alt+["], "command": "css_format"},
-    { "keys": ["ctrl+super+["], "command": "css_format"}
-]

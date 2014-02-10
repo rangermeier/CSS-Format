@@ -1,3 +1,20 @@
 [
-    { "caption": "Format LESS", "command": "less_format" }
+    {
+        "caption": "LESS: format and indent",
+        "command": "less_format"
+    },
+    {
+        "caption": "LESS: indent",
+        "command": "less_format",
+        "args": {
+            "action": "indent"
+        },
+    },
+    {
+        "caption": "LESS: format",
+        "command": "less_format",
+        "args": {
+            "action": "format"
+        }
+    }
 ]

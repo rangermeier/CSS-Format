@@ -35,6 +35,21 @@ class LessFormatCommand(sublime_plugin.TextCommand):
 
     def process_rules(self, code, action):
 
+        actions = {
+            'format'    : self.format_rules,
+            'indent'   : self.indent_rules
+        }
+
+        if action:
+            code = actions[action](code)
+        else:
+            code = actions.format(code)
+            code = actions.indent(code)
+
+        return code
+
+
+    def format_rules(self, code):
         code = re.sub(r"\s*([\{\}:;,])\s*", r"\1", code)        # remove \s before and after characters {}:;,
         code = re.sub(r";\s*;", ";", code)                      # remove superfluous ;
 
@@ -55,6 +70,11 @@ class LessFormatCommand(sublime_plugin.TextCommand):
         code = re.sub(r"(@import[^;]+;)\s*", r"\1\n", code)     # add \n and remove \t after @import
         code = re.sub(r"^\s*(\S+(\s+\S+)*)\s*$", r"\1", code)   # remove superfluous \s
 
+        return code
+
+
+    def indent_rules(self, code):
+
         code = re.sub(r"^\s*(\S+(\s+\S+)*)$", r"\1", code)  # remove \s at begin of lines
 
         # get indentation settings
@@ -74,8 +94,9 @@ class LessFormatCommand(sublime_plugin.TextCommand):
             if re.search(r"[^(\/\/)|(\/\*)]*}\s*(?=([^\"]*\"[^\"]*\")*[^\"]*$)", line):
                 level -= 1
 
-            # add spaces at beginning of line
-            line = indent_characters * level + line
+            # add spaces at beginning of non-empty lines
+            if line:
+                line = indent_characters * level + line
 
             # decrement indentation if there is a } (not in comment, not in quotes)
             if re.search(r"[^(\/\/)|(\/\*)]*{\s*(?=([^\"]*\"[^\"]*\")*[^\"]*$)", line):
